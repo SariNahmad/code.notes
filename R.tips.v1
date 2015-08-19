@@ -1,8 +1,9 @@
 ######################################
 # 8/17/2015
 # First version for R tips
-# This is currently a list of functions/libraries that are great to know about
-# I'll be making it more comprehensive and update example
+# This is currently a list of functions/libraries that I've come to use in various projects
+# I'll be adding better, more comprehensive examples next version :) 
+# Hope this is useful for you! 
 
 
 ######################################
@@ -15,19 +16,26 @@ getwd()
 # set working directory 
 setwd()
 # create new file in given directory 
-dir.create(file.path(myDirectory, newFolder))
+dir.create(file.path(DirectoryForNewFolder, newFolderName))
 
 ######################################
-# Free R Data
+# Free R Data for practice
+# Straight from R environment: 
 # https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html  
 data(mtcars) # mtcars is a dataset 
 
+# Other sources:
+# Kaggle
+# City of Chicago 
+
 # THE BASICS:
-# I am a comment
-x = 1 # a number... :) ...you are also assigning the value 1 to the variable x
-# in R "=" is ASSIGNMENT and is equivalent to "<-" 
+# I am a comment (#)
+x = 1 # a number, you are also assigning the value 1 to the variable x
+# this can easily be overwritten
+x = "1" # looks like a number but its a character --> look for quotes
+# Note: in R "=" is ASSIGNMENT and is equivalent to "<-" expression
 print(x) # print something, if you are in a loop or function this is helpful for debugging 
-x = "1" #looks like a number but its a character --> look for them quotes
+
 y = c(1,2,3) # a list
 # boolean 
 x = TRUE # or FALSE , T F also works 
@@ -91,17 +99,18 @@ A ** B
 3 ** 2
 ######################################
 # Loading data:
-# csv (don't you dare try excel files, save as csv)
+# .csv 
 data = read.csv("data_Location/data_name.csv", # don't forget the .csv
                 stringsAsFactors = FALSE, # recommended; otherwise all character variables will be factors and levels will follow you forever
                 header = TRUE, # if the data has a header
                 na.strings = c("NA",""," ")) # define strings that you want to be recognized as Nulls
 
-# RData
+# .RData
 load("data_Location/data_name.RData")
 data = data_name
-# rds
+# .rds
 data = readRDS("data_Location/data_name.rda")
+# .xls - excel...is another story
 
 # Writing data:
 # csv
@@ -117,8 +126,7 @@ mtcars$cyl
 attach(mtcars)
 cyl
 detach(mtcars)
-#####
-#################################
+######################################
 # DATA MANIPULATION 
 # changing types
 y = c(1,2,3)
